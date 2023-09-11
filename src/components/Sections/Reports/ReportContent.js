@@ -16,7 +16,7 @@ export default function ReportContent({
   // console.log(data?.data, full_data?.[0].paragraphs[0]);
 
   return (
-    <div className="flex flex-[.7] flex-grow-[1] bg-white  text-black  border gap-3 p-4 rounded-md  h-[85vh] overflow-hidden overflow-y-auto">
+    <div className="flex flex-[.7] flex-grow-[1] bg-white md:flex-row flex-col-reverse text-black  border gap-3 p-4 rounded-md  h-[85vh] overflow-hidden overflow-y-auto">
       <div className="flex flex-[.7] flex-col">
         {full_data?.map((subHeadings, hn) => {
           return (
@@ -74,9 +74,8 @@ export default function ReportContent({
                   }}
                 >
                   <p
-                    className={`text-center  py-2 rounded font-bold cursor-default ${
-                      i == selectedGraphOption ? "bg-red-100 text-red-600" : ""
-                    }`}
+                    className={`text-center  py-2 rounded font-bold cursor-default ${i == selectedGraphOption ? "bg-red-100 text-red-600" : ""
+                      }`}
                   >
                     {e.name}
                   </p>
