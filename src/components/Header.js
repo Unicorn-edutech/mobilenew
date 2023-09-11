@@ -6,6 +6,7 @@ import LINKEDIN_LOGO from "@/../public/assets/Logo/LinkedInLogo.svg";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { useState, useEffect, useContext } from "react";
 import { GoHome } from "react-icons/go";
+import { RxHamburgerMenu } from "react-icons/rx"
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import ReactModal from "react-modal";
@@ -55,6 +56,7 @@ const Header = ({ modalContainer, modalIsOpen, setIsOpen }) => {
   const router = useRouter();
   const currentPage = usePathname(); 3
   const { isAuthenticated, storeToken } = useAuth();
+  const [menuIsOpen, setMenuIsOpen] = useState(false)
 
   // State to manage loggedIn status
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -107,14 +109,14 @@ const Header = ({ modalContainer, modalIsOpen, setIsOpen }) => {
         <Image src={LOGO_IMAGE} className="h-[48px] w-[48px]" alt="LOGO" />
         <p className="text-[22px] text-white font-bold">Finance Flash</p>
         {currentPage !== "/" && (
-          <div className="flex gap-3 ml-5">
+          <div className={`${menuIsOpen ? '' : 'hidden'} md:block fixed md:static bottom-20 left-0 bg-white md:bg-[unset] shadow-xl md:shadow-none px-4 py-8 md:p-0 flex-col md:flex-row flex gap-3 ml-5`}>
             {SCREENS_ARRAY.map((v) => (
               <Link href={v.link} key={v.link}>
                 <button
                   className={`${v.link === currentPage
                     ? "bg-white text-primary"
-                    : "bg-primary text-white"
-                    } min-w-fit px-4  text-base font-bold h-11 rounded-md`}
+                    : "text-black md:bg-primary md:text-white"
+                    } min-w-fit md:px-4 text-base font-bold h-11 md:rounded-md`}
                 >
                   {v.title}
                 </button>
@@ -124,13 +126,19 @@ const Header = ({ modalContainer, modalIsOpen, setIsOpen }) => {
         )}
       </div>
       <div className="fixed md:static w-full md:w-[unset] bottom-0 left-0 z-50 flex">
-        {isLoggedIn ? (
-          <button
-            className="bg-white text-primary text-base font-bold w-full md:w-24 h-11 rounded-md"
-            onClick={logout}
-          >
-            Log Out
-          </button>
+        {true ? (
+          <div className="flex w-full ">
+            <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="bg-black md:hidden p-2">
+              <RxHamburgerMenu size="30" />
+            </button>
+            <button
+              className="bg-primary text-white md:bg-white md:text-primary text-base font-bold w-[90%] md:w-24 md:h-11 md:rounded"
+              onClick={logout}
+            >
+              Log Out
+            </button>
+          </div>
+
         ) : (
           currentPage !== "/" ? (
             <Link href={"/"}>
