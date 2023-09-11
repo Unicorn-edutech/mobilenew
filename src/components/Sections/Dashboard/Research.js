@@ -40,14 +40,14 @@ const RESEARCH_CARDS_ARRAY = [
   },
 ];
 
-const Research = () => {
+const Research = ({ setIsOpen }) => {
   const { isAuthenticated } = useAuth();
   const [showFlashMessage, setShowFlashMessage] = useState(false);
   const router = useRouter();
 
   const handleCardClick = () => {
     if (!isAuthenticated()) {
-      setShowFlashMessage(true);
+      setIsOpen(true);
       return false;  // Not authenticated
     }
     return true;  // Authenticated

@@ -51,11 +51,10 @@ const SCREENS_ARRAY = [
     link: "/financials",
   },
 ];
-const Header = ({ modalContainer }) => {
+const Header = ({ modalContainer, modalIsOpen, setIsOpen }) => {
   const router = useRouter();
   const currentPage = usePathname(); 3
   const { isAuthenticated, storeToken } = useAuth();
-  const [modalIsOpen, setIsOpen] = useState(false);
 
   // State to manage loggedIn status
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -69,6 +68,7 @@ const Header = ({ modalContainer }) => {
       setIsLoggedIn(Boolean(localStorage.getItem('token')));
     }
   }, [router.pathname]);
+
   function openModal() {
     setIsOpen(true);
   }

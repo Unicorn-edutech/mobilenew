@@ -4,7 +4,7 @@ import Research from "@/components/Sections/Dashboard/Research";
 import AAPL from "@/components/Sections/Dashboard/AAPL";
 import { Inter } from "next/font/google";
 import Script from 'next/script';
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import axios from 'axios';
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
@@ -16,6 +16,7 @@ const inter = Inter({ weight: ["500", "700"], subsets: ["latin"] });
 export default function Home() {
   const mainref = useRef();
   const router = useRouter();
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   // useEffect(() => {
   //   // Google Analytics Manual Page View Tracking
@@ -55,6 +56,10 @@ export default function Home() {
     }
   }, [router.isReady]);
 
+  function openModal() {
+
+  }
+
   return (
     <main ref={mainref} className={`${inter.className} h-[100vh]"`}>
       <Analytics />
@@ -72,9 +77,9 @@ export default function Home() {
         `}
       </Script>
 
-      <Header modalContainer={mainref} />
+      <Header modalContainer={mainref} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
       <div className="w-100 flex flex-col md:flex-row">
-        <Research />
+        <Research setIsOpen={setIsOpen} />
         <AAPL />
       </div>
     </main>
