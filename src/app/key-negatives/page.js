@@ -62,7 +62,7 @@ export default function KeyNegatives() {
     );
   }, [dataSelected]);
   useEffect(() => {
-    
+
     if (!dropdownValue && dropdownValue?.length < 3) {
       console.log("Insuffiencent data");
     } else {
@@ -81,7 +81,7 @@ export default function KeyNegatives() {
         setSourceName("loading...")
         setLoading(true);
         setDropdownTerm(dropdownValue);
-        if (selectedButton == buttons[0]) {          
+        if (selectedButton == buttons[0]) {
           setDataSelected("");
           setSourceName("");
           fetch(SET_SYMBOL_KEY_NEGATIVE_CONCALL_URL, {
@@ -216,10 +216,10 @@ export default function KeyNegatives() {
   }, [dropdownValue, selectedButton]);
 
   return (
-    <main className="h-[100vh]  bg-[#F7F8F9]">
+    <main className="min-h-screen bg-[#F7F8F9]">
       <Header />
 
-      <div className="w-100 h-[92vh] p-8">
+      <div className="w-100 p-8">
         <div className={"items-center w-full "}>
           {!dataSelected && (
             <TextDropdown

@@ -10,7 +10,7 @@ const ResearchSearchBar = ({
   ...props
 }) => {
   return (
-    <div className={"flex items-center w-full "}>
+    <div className={"flex items-center w-full justify-center md:justify-start"}>
       <input
         type="text"
         placeholder="Search for symbol or company"

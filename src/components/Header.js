@@ -132,7 +132,7 @@ const Header = ({ modalContainer, modalIsOpen, setIsOpen }) => {
               <RxHamburgerMenu size="30" />
             </button>
             <button
-              className="bg-primary text-white md:bg-white md:text-primary text-base font-bold w-[90%] md:w-24 md:h-11 md:rounded"
+              className="bg-primary text-white md:bg-white md:text-primary text-base font-bold w-full md:w-24 md:h-11 md:rounded"
               onClick={logout}
             >
               Log Out

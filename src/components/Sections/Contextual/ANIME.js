@@ -16,7 +16,7 @@ const ANIME = () => {
   }, []);
 
   return (
-    <div className="w-[90%] bg-white text-black px-9 pt-9 h-full mx-auto">
+    <div className="sm:w-[90%] bg-white text-black  sm:px-9 sm:pt-9 h-full mx-auto">
       {showGif && (
         <Image
           id="yourGifId"

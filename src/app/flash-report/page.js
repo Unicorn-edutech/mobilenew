@@ -515,9 +515,9 @@ export default function FlashReport() {
   };
 
   return (
-    <main className="h-[100vh] bg-[#F7F8F9] text-black">
+    <main className="min-h-screen bg-[#F7F8F9] text-black">
       <Header />
-      <div className="w-100 h-[92vh] p-8 flex">
+      <div className="w-100 p-8 flex flex-col md:flex-row">
         <Sidebar
           selectedLink={selectedLink}
           setSelectedLink={setSelectedLink}

@@ -88,7 +88,7 @@ export default function ContextualSeach({ href }) {
       window?.removeEventListener("popstate", checkCurrentPath)
     );
   }, [dataSelected]);
-  
+
   useEffect(() => {
     setDataSelected(false);
     setSearchData(false);
@@ -96,7 +96,7 @@ export default function ContextualSeach({ href }) {
     // setDropdownTerm("");
     setSourceName("loading...")
     setFullDoc("");
-    if(!selectedButton)setSelectedButton(buttons[0])
+    if (!selectedButton) setSelectedButton(buttons[0])
     // eslint-disable-next-line react-hooks/exhaustive-deps
     if (dropdownInputText && searchInputText)
       handleSearch(searchInputText, dropdownTerm);
@@ -158,11 +158,11 @@ export default function ContextualSeach({ href }) {
               setSearchData(consecutiveSentences || []);
             })
             .catch((error) => console.error("Error:", error));
-            fetch(LINK_10K_URL, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ symbol: dropdown }),
-            })
+          fetch(LINK_10K_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ symbol: dropdown }),
+          })
             .then((response) => response.json())
             .then((data) => {
               console.log(data?.html_content?.length, "html_content");
@@ -217,16 +217,16 @@ export default function ContextualSeach({ href }) {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          
+
           fetch(GET_ALL_SENTENCES_URL_CONCALL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ symbol: dropdown }),
           })
-          .then((response) => response.json())
-          .then((data) => {
-            let sentences = "";
-            setSourceName(data?.Source || "source not in api");
+            .then((response) => response.json())
+            .then((data) => {
+              let sentences = "";
+              setSourceName(data?.Source || "source not in api");
               data?.result?.forEach((sentence) => {
                 sentences += "<div>" + sentence["Sentence"] + "</div>";
               });
@@ -262,13 +262,13 @@ export default function ContextualSeach({ href }) {
   };
 
   return (
-    <main className="h-[100vh] bg-[#F7F8F9]">
+    <main className="bg-[#F7F8F9]">
       <Header />
-      <div className="w-100 h-[92vh] p-8">
+      <div className="w-100 min-h-screen px-4 sm:px-8 pt-8 pb-10 md:p-8">
         {!dataSelected && (
           <div className="mt-3">
             <ContextualHeader
-            inputValue={inputValue} setInputValue={setInputValue}
+              inputValue={inputValue} setInputValue={setInputValue}
               onSearch={handleSearch}
               dropdownInputText={dropdownInputText}
               setDropdownInputText={setDropdownInputText}
@@ -320,7 +320,7 @@ export default function ContextualSeach({ href }) {
         ) : (
           <Loader />
         )}
-        
+
 
         {Boolean(dataSelected && showDetailsCard) && (
           <div className="flex items-center justify-end">

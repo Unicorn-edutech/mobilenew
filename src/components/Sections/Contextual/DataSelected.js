@@ -147,16 +147,16 @@ const DataSelected = ({
   }, [cardSelected]);
   return (
     <div
-      className={`${inter.className} flex gap-4 px-5 py-8 w-full flex-col border  `}
+      className={`${inter.className} flex gap-4 px-2 sm:px-5 py-8 w-full flex-col border`}
     >
       <div className="w-full">
-        <div className="flex-row flex justify-center gap-8">
-          <p className="text-base font-bold">{label || "No label"}</p>
+        <div className="flex-col md:flex-row flex justify-center gap-8">
+          <p className="text-base font-bold text-black">{label || "No label"}</p>
           <p className="text-base text-black font-bold">Source: {sourceName}</p>
         </div>
       </div>
-      <div className="w-full flex flex-row gap-4 flex-1">
-        <div className="flex flex-col w-[30%] max-h-[65vh] min-h-[65vh] text-black bg-white overflow-hidden overflow-y-auto">
+      <div className="w-full flex flex-col md:flex-row gap-4 flex-1">
+        <div className="flex flex-col md:w-[30%] max-h-[65vh]  text-black bg-white overflow-hidden overflow-y-auto">
           {data?.map((v, i) => {
             return (
               <DataCard
@@ -169,7 +169,7 @@ const DataSelected = ({
             );
           })}
         </div>
-        <div className="flex  text-black w-[70%] max-h-[65vh] min-h-[65vh] bg-white border px-5 py-8 flex-col overflow-hidden overflow-y-scroll">
+        <div className="flex  text-black md:w-[70%] max-h-[65vh]  bg-white border px-5 py-8 flex-col overflow-hidden overflow-y-scroll">
           {fullDoc?.length > 100 ? (
             <div
               ref={docContainerRef}

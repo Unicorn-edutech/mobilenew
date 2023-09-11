@@ -6,18 +6,18 @@ const inter = Inter({ weight: ["500", "700"], subsets: ["latin"] });
 const InputContainer = () => {
   return (
     <div
-      className={`${inter.className} flex py-12 justify-center w-full  text-black bg-white border h-[65vh]`}
+      className={`${inter.className} flex py-12 justify-center w-full  text-black bg-white border`}
     >
-      <div className="flex w-[70%] flex-col">
+      <div className="flex p-4 md:p-0 md:w-[70%] flex-col">
         <p className="text-2xl font-bold">Examples</p>
-        <div className="flex items-end flex-col gap-5 mt-8">
-          <div className="w-[80%] text-gray-500 flex flex-row">
+        <div className="flex md:items-end flex-col gap-5 mt-8">
+          <div className="md:w-[80%] text-gray-500 flex flex-col md:flex-row">
             <div className="flex-1">Inputs</div>
             <div className="flex-1">
               <p>Search Context</p>
             </div>
           </div>
-          <div className="w-[80%] text-gray-500 flex flex-row">
+          <div className="md:w-[80%] text-gray-500 flex flex-col md:flex-row">
             <div className="flex-1">
               <div className="border p-2 rounded-sm flex justify-between max-w-[350px] px-3">
                 <p className="text-[#64748B]">Management Vision</p>
@@ -30,7 +30,7 @@ const InputContainer = () => {
               </p>
             </div>
           </div>
-          <div className="w-[80%] text-gray-500 flex flex-row">
+          <div className="md:w-[80%] text-gray-500 flex flex-col md:flex-row">
             <div className="flex-1">
               <div className="border p-2 rounded-sm flex justify-between max-w-[350px] px-3">
                 <p className="text-[#64748B]">Layoff</p>
