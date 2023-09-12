@@ -6,13 +6,13 @@ import { useState } from "react";
 
 
 
-const ContextualHeader = ({ onSearch, setSearchInputText, searchInputText, setDropdownInputText, dropdownInputText , inputValue, setInputValue}) => {
+const ContextualHeader = ({ onSearch, setSearchInputText, searchInputText, setDropdownInputText, dropdownInputText, inputValue, setInputValue }) => {
   const handleSearch = (e) => {
     onSearch(e, dropdownInputText);
   };
   // console.log(dropdownValue);
   return (
-    <div className="flex flex-row items-center gap-4">
+    <div className="flex flex-col md:flex-row items-center gap-4">
       <TextDropdown options={options} availableOptions={freeOptions} onSelect={setDropdownInputText} inputValue={inputValue} setInputValue={setInputValue} />
       <ResearchSearchBar
         btnClassName="shadow-lg"

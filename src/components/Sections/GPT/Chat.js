@@ -58,7 +58,7 @@ const Chat = ({ dropdownValue }) => {
 
   return (
     <div className="rounded-md 4 w-full bg-white text-black border max-h-[75vh] min-h-[75vh] flex items-center justify-center">
-      <div className="w-[70%] h-[90%] flex flex-col gap-5 ">
+      <div className="w-11/12 sm:w-[70%] h-[90%] flex flex-col gap-5 ">
         <ButtonGroup
           selectedButton={"Chat with 10k report and Chat with transcripts"}
           buttons={["Chat with 10k report and Chat with transcripts"]}

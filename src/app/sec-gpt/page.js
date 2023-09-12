@@ -19,10 +19,10 @@ export default function SecGpt() {
     }
   }, [dropdownValue]);
   return (
-    <main className="h-[100vh] bg-[#F7F8F9]">
+    <main className="min-h-[100vh] bg-[#F7F8F9]">
       <Header />
-      <div className="w-100 h-[92vh] p-8 flex justify-center">
-        <div className="w-[85%] flex gap-3 flex-col">
+      <div className="w-100 px-4 py-8 sm:p-8 flex justify-center">
+        <div className="w-full sm:w-[85%] flex gap-3 flex-col">
           <div className="flex items-center justify-center gap-5 flex-col">
             <TextDropdown
               options={options}
