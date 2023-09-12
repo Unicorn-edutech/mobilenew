@@ -9,7 +9,7 @@ const ResearchSearchCard = ({ data, index, onSelect }) => {
         router.push(pathname + "#selected", { data });
         onSelect(data);
       }}
-      className="flex gap-2 border p-5 flex-row my-4 md:m-4 rounded-md cursor-pointer hover:shadow-lg"
+      className="flex gap-2 border p-5 flex-row my-4 md:m-4 rounded-md cursor-pointer hover:shadow-lg bg-gray-300 md:bg-[unset]"
     >
       <div>{index + 1}.</div>
       <div className="felx flex-col gap-2">

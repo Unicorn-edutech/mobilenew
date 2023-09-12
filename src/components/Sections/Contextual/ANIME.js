@@ -16,7 +16,7 @@ const ANIME = () => {
   }, []);
 
   return (
-    <div className="sm:w-[90%] bg-white text-black  sm:px-9 sm:pt-9 h-full mx-auto">
+    <div className="mt-12 sm:mt-0 sm:w-[90%] bg-white text-black sm:px-9 sm:pt-9 h-full mx-auto">
       {showGif && (
         <Image
           id="yourGifId"
@@ -24,7 +24,7 @@ const ANIME = () => {
           alt="explanation gif"
           loading="lazy"
           objectFit="contain"
-          className="w-full h-[65vh] object-contain"
+          className="w-full sm:h-[65vh] object-contain"
           style={{ maxWidth: "unset", }}
         />
       )}
