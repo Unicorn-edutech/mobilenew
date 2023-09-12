@@ -103,13 +103,19 @@ const Header = ({ modalContainer, modalIsOpen, setIsOpen }) => {
   ReactModal.setAppElement(modalContainer?.current);
   return (
     <nav
-      className={`${jakarta.className} sm:h-[8vh] flex flex-col sm:flex-row items-center justify-between bg-primary px-[60px] py-2 sm:py-0`}
+      className={`${jakarta.className} sm:h-[8vh] flex flex-col sm:flex-row items-center justify-between bg-primary sm:px-[60px] py-2 sm:py-0`}
     >
-      <div className="flex items-center gap-6">
+      <div className="flex items-center sm:gap-6">
+        {currentPage !== "/" && (
+          <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="fixed left-0 h-[64px] bg-black md:hidden p-4 sm:h-[8vh] z-10">
+            <RxHamburgerMenu color="white" size="30" />
+          </button>
+        )}
         <Image src={LOGO_IMAGE} className="h-[48px] w-[48px]" alt="LOGO" />
         <p className="text-[22px] text-white font-bold">Finance Flash</p>
         {currentPage !== "/" && (
-          <div className={`${menuIsOpen ? '' : 'hidden'} md:block fixed md:static bottom-20 left-0 bg-white md:bg-[unset] shadow-xl md:shadow-none px-4 py-8 md:p-0 flex-col md:flex-row flex gap-3 ml-5`}>
+
+          <div className={`${menuIsOpen ? '' : 'hidden'} z-10 md:block fixed md:static top-20 left-0 bg-white md:bg-[unset] shadow-xl md:shadow-none px-4 py-8 md:p-0 flex-col md:flex-row flex gap-3 ml-5`}>
             {SCREENS_ARRAY.map((v) => (
               <Link href={v.link} key={v.link}>
                 <button
@@ -126,13 +132,11 @@ const Header = ({ modalContainer, modalIsOpen, setIsOpen }) => {
         )}
       </div>
       <div className="fixed md:static w-full md:w-[unset] bottom-0 left-0 z-50 flex">
-        {true ? (
+        {isLoggedIn ? (
           <div className="flex w-full ">
-            <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="bg-black md:hidden p-2">
-              <RxHamburgerMenu size="30" />
-            </button>
+
             <button
-              className="bg-primary text-white md:bg-white md:text-primary text-base font-bold w-full md:w-24 md:h-11 md:rounded"
+              className="bg-primary text-white md:bg-white md:text-primary text-base font-bold w-full md:w-24 md:h-11 md:rounded p-2"
               onClick={logout}
             >
               Log Out
